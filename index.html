@@ -1,229 +1,40 @@
-<!doctype html>
-<html lang="pt-br">
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Início — Lógica 3ºA</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comunicação Empresarial - 2º Bimestre</title>
   <style>
-:root{--bg:#0b1020;--card:#111a33;--muted:#9fb0ff;--text:#eef2ff;--accent:#7c3aed;--accent2:#22c55e;--border:rgba(255,255,255,.12);}
-*{box-sizing:border-box}
-body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Arial,sans-serif;color:var(--text);
-background:radial-gradient(1200px 600px at 15% 0%, rgba(124,58,237,.35), transparent 55%),
-radial-gradient(900px 600px at 85% 15%, rgba(34,197,94,.22), transparent 55%),var(--bg);}
-a{color:inherit;text-decoration:none}
-.container{max-width:1100px;margin:0 auto;padding:24px}
-header{display:flex;gap:16px;align-items:center;justify-content:space-between;padding:18px;border:1px solid var(--border);border-radius:18px;
-background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));backdrop-filter:blur(6px);}
-.brand{display:flex;gap:12px;align-items:center}
-.logo{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(135deg, rgba(124,58,237,.9), rgba(34,197,94,.7));border:1px solid rgba(255,255,255,.18);}
-h1{font-size:18px;margin:0}
-.subtitle{margin:2px 0 0;font-size:12px;color:rgba(238,242,255,.75)}
-.badges{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
-.badge{font-size:12px;padding:6px 10px;border-radius:999px;border:1px solid var(--border);background:rgba(255,255,255,.05);color:rgba(238,242,255,.85)}
-nav{margin-top:16px;display:flex;gap:10px;flex-wrap:wrap}
-.navbtn{padding:10px 12px;border-radius:12px;border:1px solid var(--border);background:rgba(255,255,255,.04);font-size:13px}
-.navbtn:hover{background:rgba(255,255,255,.07)}
-.grid{margin-top:18px;display:grid;gap:14px;grid-template-columns:repeat(12,1fr)}
-.card{grid-column:span 12;border:1px solid var(--border);border-radius:18px;background:rgba(17,26,51,.72);box-shadow:0 20px 60px rgba(0,0,0,.35);overflow:hidden}
-.hd{padding:16px 16px 10px;display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
-.hd h2{margin:0;font-size:16px}
-.hd p{margin:6px 0 0;color:rgba(238,242,255,.72);font-size:13px;line-height:1.35}
-.bd{padding:0 16px 16px}
-.cols{display:grid;gap:14px;grid-template-columns:repeat(12,1fr)}
-.col6{grid-column:span 12}
-@media(min-width:920px){.col6{grid-column:span 6}}
-.section-title{margin:0 0 8px;font-size:13px;letter-spacing:.3px;color:rgba(238,242,255,.85);text-transform:uppercase}
-.box{border:1px dashed rgba(255,255,255,.18);border-radius:16px;padding:14px;background:rgba(0,0,0,.16)}
-pre{margin:0;padding:12px;border-radius:14px;background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.14);overflow:auto;font-size:13px;line-height:1.4}
-ul{margin:10px 0 0 18px}li{margin:6px 0;color:rgba(238,242,255,.85)}
-hr.sep{border:0;height:1px;background:rgba(255,255,255,.12);margin:14px 0}
-.callout{border-left:4px solid rgba(124,58,237,.9);padding:10px 12px;border-radius:12px;background:rgba(124,58,237,.10);color:rgba(238,242,255,.9);font-size:13px}
-.illus{width:100%;height:170px;border-radius:16px;border:1px solid rgba(255,255,255,.12);background:rgba(0,0,0,.18);display:flex;align-items:center;justify-content:center;overflow:hidden}
-.illus svg{width:100%;height:100%}
-/* Quiz */
-.quiz{border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:14px;background:rgba(8,18,52,.55)}
-.quiz-top{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
-.progress{width:220px;max-width:100%;height:10px;border-radius:999px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.12);overflow:hidden}
-.progress>div{height:100%;width:0%;background:linear-gradient(90deg,var(--accent),var(--accent2))}
-.q{margin-top:12px;font-size:14px;color:rgba(255,255,255,.96)}
-.opts{display:grid;gap:8px;margin-top:10px}
-.opt{padding:10px 12px;border-radius:14px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.05);cursor:pointer;font-size:13px;text-align:left;color:rgba(255,255,255,.96)}
-.opt:hover{background:rgba(255,255,255,.08)}
-.opt.correct{border-color:rgba(34,197,94,.7);background:rgba(34,197,94,.16)}
-.opt.wrong{border-color:rgba(239,68,68,.7);background:rgba(239,68,68,.16)}
-.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
-.btn{padding:10px 12px;border-radius:12px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.08);cursor:pointer;font-size:13px;color:rgba(255,255,255,.96)}
-.btn.primary{background:rgba(124,58,237,.22);border-color:rgba(124,58,237,.5)}
-.btn.success{background:rgba(34,197,94,.18);border-color:rgba(34,197,94,.5)}
-.btn:disabled{opacity:.45;cursor:not-allowed}
-.small{font-size:12px;color:rgba(238,242,255,.7)}
-.footer{margin:18px 0 0;color:rgba(238,242,255,.65);font-size:12px;text-align:center}
-</style>
+    body{font-family:Arial,sans-serif;background:#0f172a;color:#e5eefb;margin:0;padding:24px}
+    .wrap{max-width:1100px;margin:auto}
+    .hero,.card{background:#111827;border:1px solid #334155;border-radius:18px;padding:20px}
+    .hero{margin-bottom:18px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+    a.btn{display:inline-block;margin-top:12px;padding:10px 14px;background:#0284c7;color:white;text-decoration:none;border-radius:10px;font-weight:bold}
+    a.btn.soon{background:#d97706}
+    .tag{display:inline-block;padding:4px 8px;border-radius:999px;background:#0369a1;font-size:12px;font-weight:bold}
+  </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div class="brand">
-        <div class="logo" aria-hidden="true"></div>
-        <div>
-          <h1>Introdução à Lógica de Programação — 3ºA</h1>
-          <div class="subtitle">Aulas do 2º bimestre (Semanas 13–16)</div>
-        </div>
-      </div>
-      <div class="badges">
-        <span class="badge">2º bimestre (2026)</span>
-        <span class="badge">Quinta • 50 min</span>
-        <span class="badge">Professor: Cláudio Amado</span>
-      </div>
-    </header>
-
-    <nav aria-label="Menu">
-      <a class="navbtn" href="index.html">🏠 Início</a>
-<a class="navbtn" href="semana13.html">📘 07/05 — Funções (revisão)</a>
-<a class="navbtn" href="semana14.html">📗 14/05 — Retorno & Reuso (revisão)</a>
-<a class="navbtn" href="semana15.html">📙 21/05 — Vetor (revisão)</a>
-<a class="navbtn" href="semana16.html">⭐ 28/05 — Matriz (aula de hoje)</a>
-<a class="navbtn" href="#" title="Em breve" aria-disabled="true">🔒 11/06 — Lista/Fila/Pilha (em breve)</a>
-<a class="navbtn" href="#" title="Em breve" aria-disabled="true">🔒 18/06 — Árvore (em breve)</a>
-<a class="navbtn" href="#" title="Em breve" aria-disabled="true">🔒 25/06 — Avaliação (em breve)</a>
-<a class="navbtn" href="#" title="Em breve" aria-disabled="true">🔒 02/07 — Big-O (em breve)</a>
-<a class="navbtn" href="#" title="Em breve" aria-disabled="true">🩹 09/07 — RAV (em breve)</a>
-<a class="navbtn" href="#" title="Em breve" aria-disabled="true">🔒 16/07 — Ordenação (em breve)</a>
-    </nav>
-
-    
-<div class="grid">
-  <section class="card">
-    <div class="hd">
-      <div>
-        <h2>📌 Bem-vindo(a)!</h2>
-        <p>Abra a aula pelo menu, leia o conteúdo, copie o <b>Resumo para copiar</b> no caderno e faça o <b>Quiz (10 questões)</b>.</p>
-        <div class="callout">Meta: tentar chegar em <b>7/10</b> ou mais no quiz. Se errar, tente de novo.</div>
-      </div>
-      <div style="min-width:260px; max-width:360px;">
-        <div class="illus" aria-hidden="true"><svg viewBox="0 0 900 300" xmlns="http://www.w3.org/2000/svg">
-          <rect width="900" height="300" fill="rgba(0,0,0,.15)"/>
-          <text x="60" y="85" fill="rgba(238,242,255,.9)" font-size="26" font-family="system-ui">Semanas 13–16 publicadas</text>
-          <text x="60" y="120" fill="rgba(238,242,255,.7)" font-size="16" font-family="system-ui">Funções → Retorno → Vetor → Matriz</text>
-          <g transform="translate(60,150)">
-            <rect x="0" y="0" width="170" height="70" rx="14" fill="rgba(124,58,237,.20)" stroke="rgba(255,255,255,.18)"/>
-            <text x="18" y="44" fill="rgba(238,242,255,.9)" font-size="18" font-family="system-ui">Funções</text>
-            <rect x="190" y="0" width="170" height="70" rx="14" fill="rgba(124,58,237,.12)" stroke="rgba(255,255,255,.18)"/>
-            <text x="208" y="44" fill="rgba(238,242,255,.9)" font-size="18" font-family="system-ui">Retorno</text>
-            <rect x="380" y="0" width="170" height="70" rx="14" fill="rgba(124,58,237,.10)" stroke="rgba(255,255,255,.18)"/>
-            <text x="430" y="44" fill="rgba(238,242,255,.9)" font-size="18" font-family="system-ui">Vetor</text>
-            <rect x="570" y="0" width="170" height="70" rx="14" fill="rgba(34,197,94,.14)" stroke="rgba(255,255,255,.18)"/>
-            <text x="615" y="44" fill="rgba(238,242,255,.9)" font-size="18" font-family="system-ui">Matriz</text>
-          </g>
-        </svg></div>
-      </div>
-    </div>
-    <div class="bd">
-      <div class="cols">
-        <div class="col6">
-          <div class="box">
-            <div class="section-title">📅 Aulas publicadas</div>
-            <ul>
-              <li><b>07/05</b> — Funções (revisão)</li>
-              <li><b>14/05</b> — Retorno & Reuso (revisão)</li>
-              <li><b>21/05</b> — Vetor (revisão)</li>
-              <li><b>28/05</b> — Matriz (aula de hoje)</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col6">
-          <div class="box">
-            <div class="section-title">📝 Como estudar</div>
-            <ul>
-              <li>Leia o conteúdo.</li>
-              <li>Copie o resumo no caderno.</li>
-              <li>Faça o quiz e tente melhorar a pontuação.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-</div>
-
-
-    
-
-    <div class="footer">© 2026 — Material de apoio. Simples, didático e direto.</div>
+<div class="wrap">
+  <div class="hero">
+    <h1>🌐 Comunicação Empresarial — 2º Bimestre</h1>
+    <p>Apresentação em HTML com index e páginas por aula para o projeto <strong>Escola que Queremos</strong>.</p>
+    <p>As aulas 13, 14 e 15 estão completas. As aulas 16 a 23 estão sinalizadas como <strong>Em breve</strong>.</p>
   </div>
-
-  <script>
-function createQuiz(rootId, questions){
-  const root = document.getElementById(rootId);
-  if(!root) return;
-  let idx=0, score=0, locked=false;
-  const el={
-    bar: root.querySelector(".progress > div"),
-    meta: root.querySelector("[data-meta]"),
-    q: root.querySelector("[data-q]"),
-    opts: root.querySelector("[data-opts]"),
-    score: root.querySelector("[data-score]"),
-    next: root.querySelector("[data-next]"),
-    reveal: root.querySelector("[data-reveal]"),
-    restart: root.querySelector("[data-restart]"),
-  };
-  function render(){
-    const item=questions[idx];
-    el.q.textContent=item.q;
-    el.opts.innerHTML="";
-    locked=false;
-    el.next.disabled=true;
-    el.reveal.disabled=false;
-    el.meta.textContent=`Questão ${idx+1} de ${questions.length}`;
-    el.score.textContent=`Pontuação: ${score}/${questions.length}`;
-    el.bar.style.width=Math.round((idx/questions.length)*100)+"%";
-    item.options.forEach((opt,i)=>{
-      const b=document.createElement("button");
-      b.type="button"; b.className="opt";
-      b.textContent=`${String.fromCharCode(65+i)}) ${opt}`;
-      b.addEventListener("click",()=>choose(i,b));
-      el.opts.appendChild(b);
-    });
-  }
-  function mark(correctIdx, chosenIdx){
-    const btns=[...el.opts.querySelectorAll(".opt")];
-    btns.forEach((b,i)=>{ if(i===correctIdx) b.classList.add("correct"); });
-    if(chosenIdx!==null && chosenIdx!==correctIdx) btns[chosenIdx].classList.add("wrong");
-  }
-  function choose(i){
-    if(locked) return;
-    locked=true;
-    const item=questions[idx];
-    mark(item.answer, i);
-    if(i===item.answer) score++;
-    el.score.textContent=`Pontuação: ${score}/${questions.length}`;
-    el.next.disabled=false;
-    el.reveal.disabled=true;
-  }
-  function reveal(){
-    if(locked) return;
-    locked=true;
-    mark(questions[idx].answer, null);
-    el.next.disabled=false;
-    el.reveal.disabled=true;
-  }
-  function next(){
-    if(idx<questions.length-1){ idx++; render(); }
-    else{
-      el.bar.style.width="100%";
-      el.meta.textContent="Concluído";
-      el.q.textContent="Fim do Quiz! ✅";
-      el.opts.innerHTML=`<div class="callout">Sua pontuação final foi <b>${score}/${questions.length}</b>. Clique em <b>Recomeçar</b> para treinar de novo.</div>`;
-      el.next.disabled=true; el.reveal.disabled=true;
-    }
-  }
-  function restart(){ idx=0; score=0; render(); }
-  el.next.addEventListener("click", next);
-  el.reveal.addEventListener("click", reveal);
-  el.restart.addEventListener("click", restart);
-  render();
-}
-</script>
-  <script></script>
+  <div class="grid">
+    <div class="card"><span class="tag">Disponível</span><h3>Aula 13</h3><p>Comunicação digital: canais essenciais para estratégia digital</p><a class="btn" href="aula13.html">Abrir</a></div>
+    <div class="card"><span class="tag">Disponível</span><h3>Aula 14</h3><p>Websites, blogs, redes sociais, e-mail marketing, marketing de conteúdo e publicidade online</p><a class="btn" href="aula14.html">Abrir</a></div>
+    <div class="card"><span class="tag">Disponível</span><h3>Aula 15</h3><p>Ferramentas para amplificar a comunicação: automação, análise de dados, CRM, videoconferência e colaboração online</p><a class="btn" href="aula15.html">Abrir</a></div>
+    <div class="card"><span class="tag">Em breve</span><h3>Aula 16</h3><p>Benefícios da comunicação empresarial digital</p><a class="btn soon" href="aula16.html">Abrir</a></div>
+    <div class="card"><span class="tag">Em breve</span><h3>Aula 17</h3><p>Desafios da comunicação empresarial digital</p><a class="btn soon" href="aula17.html">Abrir</a></div>
+    <div class="card"><span class="tag">Em breve</span><h3>Aula 18</h3><p>Definição de objetivos e público-alvo</p><a class="btn soon" href="aula18.html">Abrir</a></div>
+    <div class="card"><span class="tag">Em breve</span><h3>Aula 19</h3><p>Análise da situação atual</p><a class="btn soon" href="aula19.html">Abrir</a></div>
+    <div class="card"><span class="tag">Em breve</span><h3>Aula 20</h3><p>Elaboração da estratégia de comunicação</p><a class="btn soon" href="aula20.html">Abrir</a></div>
+    <div class="card"><span class="tag">Em breve</span><h3>Aula 21</h3><p>Implementação da estratégia de comunicação</p><a class="btn soon" href="aula21.html">Abrir</a></div>
+    <div class="card"><span class="tag">Em breve</span><h3>Aula 22</h3><p>Relações interpessoais no ambiente de trabalho</p><a class="btn soon" href="aula22.html">Abrir</a></div>
+    <div class="card"><span class="tag">Em breve</span><h3>Aula 23</h3><p>Consolidação da Entrega 1 da disciplina</p><a class="btn soon" href="aula23.html">Abrir</a></div>
+  </div>
+</div>
 </body>
 </html>
